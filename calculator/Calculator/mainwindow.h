@@ -19,8 +19,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    bool loadStyleSheet(const QString &filePath, QWidget widget);
-
 private:
     Ui::MainWindow *ui;
 };
