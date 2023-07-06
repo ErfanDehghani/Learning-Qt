@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QFileInfoList>
 #include <QDir>
+#include "photoviewer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dialog; }
@@ -20,10 +21,15 @@ public:
     Dialog(QWidget *parent = nullptr);
     ~Dialog();
 
-    void loadImages();
+    void loadAlbum();
     void scan(QFileInfoList fileInfoList);
+    void buildImage(QString imageAbsolutePath);
+    void loadImageViewer(QString imageAbsolutePath);
 
 private:
     Ui::Dialog *ui;
+
+public slots:
+    void photoDoubleClicked(QListWidgetItem* item);
 };
 #endif // DIALOG_H

@@ -1,5 +1,6 @@
 #include "photoviewer.h"
 #include "ui_photoviewer.h"
+#include <QtSvgWidgets/QSvgWidget>
 
 PhotoViewer::PhotoViewer(QWidget *parent) :
     QDialog(parent),
@@ -11,4 +12,18 @@ PhotoViewer::PhotoViewer(QWidget *parent) :
 PhotoViewer::~PhotoViewer()
 {
     delete ui;
+}
+
+void PhotoViewer::setImage(QString imageAbsolutePath)
+{
+    QPixmap image(imageAbsolutePath);
+    ui->photoViewerLabel->setPixmap(image);
+    ui->photoViewerLabel->setAlignment(Qt::AlignCenter);
+}
+
+QString PhotoViewer::getType(QString imageAbsolutePath)
+{
+    QFileInfo fileInfo(imageAbsolutePath);
+    QString fileType = fileInfo.suffix();
+    return fileType;
 }

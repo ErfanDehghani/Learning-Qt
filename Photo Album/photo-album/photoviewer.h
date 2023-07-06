@@ -2,6 +2,7 @@
 #define PHOTOVIEWER_H
 
 #include <QDialog>
+#include <QFileInfo>
 
 namespace Ui {
 class PhotoViewer;
@@ -15,8 +16,13 @@ public:
     explicit PhotoViewer(QWidget *parent = nullptr);
     ~PhotoViewer();
 
+    void setImage(QString imageAbsolutePath);
+
+
 private:
     Ui::PhotoViewer *ui;
+    QString imageAbsolutePath;
+    QString getType(QString imageAbsolutePath);
 };
 
 #endif // PHOTOVIEWER_H
